@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dilip Kumar - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary-bg: #1a0f2b;
+            --secondary-bg: #2a1a45;
+            --accent-color: #c861ff;
+            --text-color: #e0e0e0;
+            --heading-color: #ffffff;
+            --card-bg: rgba(45, 30, 70, 0.4);
+            --card-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-image: linear-gradient(135deg, var(--primary-bg) 0%, #3d1b54 100%);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* --- Header --- */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            background: rgba(26, 15, 43, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--heading-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* --- Section Styling --- */
+        section {
+            padding: 100px 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--heading-color);
+            margin-bottom: 3rem;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        /* --- Hero Section --- */
+        #home {
+            text-align: center;
+        }
+
+        .hero-logo {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #e040fb, #7c4dff);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3rem;
+            font-weight: bold;
+            color: white;
+            margin: 0 auto 2rem;
+            box-shadow: 0 0 30px rgba(200, 97, 255, 0.5);
+        }
+
+        #home h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--heading-color);
+            margin-bottom: 1rem;
+        }
+
+        .animated-text {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            height: 2.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        #home p {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, #e040fb, #7c4dff);
+            color: white;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(200, 97, 255, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid var(--accent-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent-color);
+            color: var(--primary-bg);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .social-links a {
+            color: var(--text-color);
+            font-size: 1.5rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+
+        /* --- Glassmorphism Card --- */
+        .glass-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid var(--card-border);
+            padding: 2.5rem;
+            text-align: center;
+            /* Center aligns content within the card */
+        }
+
+        /* --- About Section --- */
+        #about .glass-card {
+            max-width: 800px;
+        }
+
+        #about p {
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .metrics {
+            display: flex;
+            justify-content: space-around;
+            /* This centers the metrics */
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            text-align: center;
+            /* Ensures text inside metric-item is centered */
+        }
+
+        .metric-item .number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--heading-color);
+        }
+
+        .metric-item .label {
+            font-size: 1rem;
+            color: var(--text-color);
+        }
+
+        /* --- Projects, Skills, Achievements Grid --- */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            width: 100%;
+        }
+
+        .grid-item {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid var(--card-border);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .grid-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .grid-item h3 {
+            color: var(--heading-color);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Projects */
+        .tech-tags {
+            margin: 1rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            /* Centers tags within project card */
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-links {
+            text-align: center;
+            /* Centers project links */
+        }
+
+        .project-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            margin: 0 0.5rem;
+            /* Adjust margin for centering */
+            font-weight: 600;
+        }
+
+        .project-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Skills */
+        .skill-category {
+            margin-bottom: 1.5rem;
+            text-align: center;
+            /* Centers skill category content */
+        }
+
+        .skill-category h4 {
+            color: var(--heading-color);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+            /* Allows border-bottom to fit text */
+        }
+
+        .skill-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            justify-content: center;
+            /* Centers skill items */
+        }
+
+        .skill-list li {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 15px;
+            border-radius: 8px;
+        }
+
+        /* Achievements */
+        .achievement-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: -webkit-linear-gradient(135deg, #e040fb, #7c4dff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* --- Contact Section --- */
+        #contact form {
+            max-width: 600px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin: 0 auto;
+            /* Centers the form itself */
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: center;
+            /* Centers label and input */
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            max-width: 400px;
+            /* Limit width of input fields */
+            margin: 0 auto;
+            /* Centers input fields */
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 10px;
+            padding: 15px;
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            font-size: 1rem;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #a0a0a0;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        #contact .btn-primary {
+            align-self: center;
+            /* Centers the submit button */
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            background: var(--primary-bg);
+            border-top: 1px solid var(--card-border);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#home" class="logo">DK</a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#achievements">Achievements</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home">
+        <div class="container">
+            <div class="hero-logo">DK</div>
+            <h1>Hi, I'm Dilip Kumar</h1>
+            <p class="animated-text"></p>
+            <p>
+                A passionate Computer Science student at Lovely Professional University who loves problem-solving,
+                full-stack development, and open-source.
+            </p>
+            <div class="btn-group">
+                <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                <a href="your_resume.pdf" class="btn btn-secondary" target="_blank">Download CV</a>
+            </div>
+            <div class="social-links">
+                <a href="mailto:dilipkumar2832005@gmail.com" target="_blank" aria-label="Email"><i
+                        class="fas fa-envelope"></i></a>
+                <a href="https://github.com/dilsec20" target="_blank" aria-label="GitHub"><i
+                        class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/dilip-kumar18/" target="_blank" aria-label="LinkedIn"><i
+                        class="fab fa-linkedin"></i></a>
+                <a href="https://codeforces.com/profile/Dragon.Slayer" target="_blank" aria-label="Codeforces"><i
+                        class="fas fa-code"></i></a>
+                <a href="https://leetcode.com/u/dilsec18/" target="_blank" aria-label="LeetCode"><i
+                        class="fas fa-keyboard"></i></a>
+                <a href="https://twitter.com/dilsec18" target="_blank" aria-label="X"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about"><centre>
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="glass-card">
+                <p>I'm a 3rd-year B.Tech CSE student at Lovely Professional University with interests in Web
+                    Development, Data Structures, and Competitive Programming. I love building projects that solve
+                    real-world problems and constantly challenging myself to learn new technologies.</p>
+                <p>My journey in computer science has been driven by curiosity and a passion for creating impactful
+                    solutions. Whether it's optimizing algorithms, building full-stack applications, or participating in
+                    hackathons, I'm always eager to push my boundaries.</p>
+                <div class="metrics">
+                    <div class="metric-item">
+                        <span class="number">800+</span>
+                        <span class="label">Problems Solved</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="number">15+</span>
+                        <span class="label">Projects</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="number">4+</span>
+                        <span class="label">Certifications</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="number">2</span>
+                        <span class="label">Hackathons</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section></centre>
+
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="grid">
+                <div class="grid-item">
+                    <h3>Random-Chat Platform</h3>
+                    <p>A full-featured chat application that connects users with strangers for audio and video calls,
+                        also supporting private rooms.</p>
+                    <div class="tech-tags">
+                        <span class="tag">Node.js</span><span class="tag">Express.js</span><span
+                            class="tag">Socket.IO</span><span class="tag">WebRTC</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/dilsec20" target="_blank">GitHub</a>
+                        <a href="https://randomchat-xf2f.onrender.com" target="_blank">Live Demo</a>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <h3>XSS Vulnerability Scanner</h3>
+                    <p>An automated security tool built using Selenium to detect Cross-Site Scripting (XSS)
+                        vulnerabilities in web applications.</p>
+                    <div class="tech-tags">
+                        <span class="tag">Python</span><span class="tag">Selenium</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/dilsec20" target="_blank">GitHub</a>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <h3>Shodan IP Finder</h3>
+                    <p>A network intelligence tool that integrates with the Shodan API to discover the true IP addresses
+                        of related subdomains.</p>
+                    <div class="tech-tags">
+                        <span class="tag">Python</span><span class="tag">Shodan API</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/dilsec20" target="_blank">GitHub</a>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <h3>Classic Snake Game</h3>
+                    <p>A responsive and interactive implementation of the classic Snake game, built with vanilla
+                        JavaScript.</p>
+                    <div class="tech-tags">
+                        <span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/dilsec20/snake_game" target="_blank">GitHub</a>
+                        <a href="https://dilsec20.github.io/snake_game/snake.html" target="_blank">Live Demo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="grid">
+                <div class="grid-item skill-category">
+                    <h4>Programming Languages</h4>
+                    <ul class="skill-list">
+                        <li>C++</li>
+                        <li>Python</li>
+                        <li>JavaScript</li>
+                        <li>Java</li>
+                        <li>Kotlin</li>
+                        <li>SQL</li>
+                    </ul>
+                </div>
+                <div class="grid-item skill-category">
+                    <h4>Web Technologies</h4>
+                    <ul class="skill-list">
+                        <li>HTML5</li>
+                        <li>CSS3</li>
+                        <li>React</li>
+                        <li>Node.js</li>
+                        <li>Express</li>
+                        <li>Tailwind CSS</li>
+                    </ul>
+                </div>
+                <div class="grid-item skill-category">
+                    <h4>CS Fundamentals</h4>
+                    <ul class="skill-list">
+                        <li>Data Structures</li>
+                        <li>Algorithms</li>
+                        <li>OOP</li>
+                        <li>DBMS</li>
+                        <li>OS</li>
+                        <li>Networking</li>
+                    </ul>
+                </div>
+                <div class="grid-item skill-category">
+                    <h4>Tools & Platforms</h4>
+                    <ul class="skill-list">
+                        <li>Git & GitHub</li>
+                        <li>VS Code</li>
+                        <li>Burp Suite</li>
+                        <li>Nmap</li>
+                        <li>LeetCode</li>
+                        <li>Codeforces</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="achievements">
+        <div class="container">
+            <h2 class="section-title">Achievements</h2>
+            <div class="grid">
+                <div class="grid-item">
+                    <div class="achievement-icon"><i class="fas fa-trophy"></i></div>
+                    <h3>Competitive Programming</h3>
+                    <p>Achieved a Codeforces peak rating of 1250 and consistently solved 800+ problems on various
+                        platforms.</p>
+                </div>
+                <div class="grid-item">
+                    <div class="achievement-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Security Contributions</h3>
+                    <p>Discovered and reported multiple security vulnerabilities in bug bounty programs, receiving
+                        acknowledgments.</p>
+                </div>
+                <div class="grid-item">
+                    <div class="achievement-icon"><i class="fas fa-users"></i></div>
+                    <h3>Hackathon Runner-up</h3>
+                    <p>Secured second place in the Smart India Hackathon 2024 for developing an innovative solution.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="glass-card">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Dilip Kumar. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Animated Text for Hero Section
+        const animatedText = document.querySelector('.animated-text');
+        const phrases = ["A Competitive Programmer", "A Full-Stack Developer", "An Ethical Hacker"];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function type() {
+            const currentPhrase = phrases[phraseIndex];
+            if (isDeleting) {
+                animatedText.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                animatedText.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                isDeleting = true;
+                setTimeout(type, 2000); // Pause at the end of the phrase
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                setTimeout(type, 500); // Pause before starting new phrase
+            } else {
+                const typingSpeed = isDeleting ? 100 : 150;
+                setTimeout(type, typingSpeed);
+            }
+        }
+        document.addEventListener('DOMContentLoaded', type);
+    </script>
+</body>
+
+</html>
